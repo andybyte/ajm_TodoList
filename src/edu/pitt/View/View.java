@@ -4,14 +4,17 @@
 package edu.pitt.View;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
-import javax.swing.border.TitledBorder;
+
+
 
 /**
  * @author andymrkva
@@ -58,8 +61,29 @@ public class View {
 		
 		btnAddButton = new JButton("Add Item");
 		btnAddButton.setBounds(20,20,100,20);
+		btnAddButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				String task = JOptionPane.showInputDialog("Please enter a task: ");
+				if (task != " ") {
+					//Menu rand = mm.randomMenu(nameMenu);
+					listModel.addElement(task); 
+				}
+			}
+		});
+		
 		btnDeleteButton = new JButton("Delete Item");
 		btnDeleteButton.setBounds(275,20,100,20);
+		btnDeleteButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if (jlTodos.getSelectedValue() == null) {
+					JOptionPane.showMessageDialog(null, "Please select a task to delete.");
+				} else {
+					Object item = jlTodos.getSelectedValue();
+					listModel.removeElement(item);
+				};
+			}
+		});
+		
 		
 		frmTodoListFrame.getContentPane().add(btnAddButton);
 		frmTodoListFrame.getContentPane().add(btnDeleteButton);
