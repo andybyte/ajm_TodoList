@@ -8,17 +8,22 @@ package edu.pitt.Model;
  *
  */
 public class ListItem {
+	
 	private String description;
 	
-	public ListItem(description) {
-		
+	/**
+	 * @param description
+	 */
+	public ListItem(String description) {
+		super();
+		this.description = description;
 	}
 	
-	public getDescription() {
-		
+	public String getDescription() {
+		return this.description;
 	}
 	
-	public setDescription(description) {
-		
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

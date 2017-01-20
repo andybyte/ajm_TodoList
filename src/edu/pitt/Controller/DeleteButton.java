@@ -2,6 +2,7 @@
  * 
  */
 package edu.pitt.Controller;
+import edu.pitt.Controller.Controller;
 
 /**
  * @author andymrkva
@@ -9,12 +10,16 @@ package edu.pitt.Controller;
  */
 public class DeleteButton {
 	private Controller controller;
-	
-	public DeleteButton(controller) {
-		
+
+	/**
+	 * @param controller
+	 */
+	public DeleteButton(Controller controller) {
+		super();
+		this.controller = controller;
 	}
 	
-	public actionPerformed(event) {
+	public void actionPerformed() {
 		
 	}
 }

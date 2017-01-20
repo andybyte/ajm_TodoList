@@ -2,6 +2,7 @@
  * 
  */
 package edu.pitt.Controller;
+import edu.pitt.Controller.Controller;
 
 /**
  * @author andymrkva
@@ -10,11 +11,15 @@ package edu.pitt.Controller;
 public class AddButton {
 	private Controller controller;
 	
-	public AddButton(controller) {
-		
+	/**
+	 * @param controller
+	 */
+	public AddButton(Controller controller) {
+		super();
+		this.controller = controller;
 	}
 	
-	public actionPerformed(event) {
+	public void actionPerformed() {
 		
 	}
 }
