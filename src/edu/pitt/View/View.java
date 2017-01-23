@@ -3,17 +3,26 @@
  */
 package edu.pitt.View;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
+
+import edu.pitt.Model.ListItem;
+import edu.pitt.Model.Model;
+
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 
+import java.awt.Color;
+
+//import edu.pitt.Controller.*;
+//import edu.pitt.Model.*;
+//import javax.swing.JOptionPane;
+//import javax.swing.DefaultListModel;
 
 
 /**
@@ -27,32 +36,24 @@ public class View {
 	private JButton btnAddButton;
 	private JButton btnDeleteButton;
 	private JList jlTodos;
-	private DefaultListModel listModel;
-	
 	
 	/**
-	 * Launch the application to test view.
-	 */
-	public static void main(String[] args) {
-		View window = new View();
-		window.frmTodoListFrame.setVisible(true);
-	}
-	
-	/**
-	 * Create View GUI.
+	 * @param frmTodoListFrame
+	 * @param btnAddButton
+	 * @param btnDeleteButton
 	 */
 	public View() {
+		this.frmTodoListFrame = new JFrame("My Todo List");
+		this.btnAddButton = new JButton();
+		this.btnDeleteButton = new JButton();
+//		this.jlTodos = new JList();
 		initTodoListFrame();
+		this.frmTodoListFrame.setVisible(true);
+
 	}
-	
+
 	private void initTodoListFrame() {
-		
-		// Initialize frame and parts.
-		
-		listModel = new DefaultListModel();
-		jlTodos = new JList(listModel);
-		
-		frmTodoListFrame = new JFrame("My Todo List");
+				
 		frmTodoListFrame.setBounds(100, 100, 400, 400);
 		frmTodoListFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTodoListFrame.getContentPane().setLayout(null);
@@ -62,35 +63,40 @@ public class View {
 		btnAddButton = new JButton("Add Item");
 		btnAddButton.setBounds(20,20,100,20);
 		btnAddButton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				String task = JOptionPane.showInputDialog("Please enter a task: ");
-				if (task != " ") {
-					//Menu rand = mm.randomMenu(nameMenu);
-					listModel.addElement(task); 
-				}
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
+//			controller.addButton.actionPerformed(ActionEvent e);
 		});
 		
 		btnDeleteButton = new JButton("Delete Item");
 		btnDeleteButton.setBounds(275,20,100,20);
 		btnDeleteButton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				if (jlTodos.getSelectedValue() == null) {
-					JOptionPane.showMessageDialog(null, "Please select a task to delete.");
-				} else {
-					Object item = jlTodos.getSelectedValue();
-					listModel.removeElement(item);
-				};
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
+//			controller.deleteButton.actionPerformed(ActionEvent e);
 		});
 		
 		
 		frmTodoListFrame.getContentPane().add(btnAddButton);
 		frmTodoListFrame.getContentPane().add(btnDeleteButton);
 		
+		
+	}
+	
+	public void updateTodoList(Vector<ListItem> todoList) {
+		JList<ListItem> jlTodos = new JList<ListItem>(todoList);
 		jlTodos.setBounds(20, 40, 355, 300);
 		jlTodos.setBorder(BorderFactory.createLineBorder(Color.black));
 		frmTodoListFrame.getContentPane().add(jlTodos);
-		
+		System.out.print("Hello");
+		this.frmTodoListFrame.setVisible(true);
 	}
 }

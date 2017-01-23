@@ -3,7 +3,6 @@
  */
 package edu.pitt.Controller;
 import edu.pitt.Model.Model;
-import edu.pitt.Model.ListItem;
 import edu.pitt.View.View;
 import edu.pitt.Controller.DeleteButton;
 import edu.pitt.Controller.AddButton;
@@ -14,7 +13,7 @@ import edu.pitt.Controller.AddButton;
 public class Controller {
 	private View view;
 	private Model model;
-	private AddButton addbutton;
+	private AddButton addButton;
 	private DeleteButton deleteButton;
 	
 	/**
@@ -22,9 +21,9 @@ public class Controller {
 	 * @param model
 	 */
 	public Controller(View view, Model model) {
-		super();
 		this.view = view;
 		this.model = model;
+		this.getView().updateTodoList(this.getModel().getList());
 	}
 
 	/**
@@ -44,10 +43,10 @@ public class Controller {
 
 	
 	/**
-	 * @return the addbutton
+	 * @return the addButton
 	 */
-	public AddButton getAddbutton() {
-		return addbutton;
+	public AddButton getAddButton() {
+		return addButton;
 	}
 
 
