@@ -61,28 +61,14 @@ public class View {
 		// Initialize text elements.
 		
 		btnAddButton = new JButton("Add Item");
-		btnAddButton.setBounds(20,20,100,20);
-		btnAddButton.addActionListener(new ActionListener(){
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-//			controller.addButton.actionPerformed(ActionEvent e);
-		});
-		
 		btnDeleteButton = new JButton("Delete Item");
-		btnDeleteButton.setBounds(275,20,100,20);
-		btnDeleteButton.addActionListener(new ActionListener(){
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-//			controller.deleteButton.actionPerformed(ActionEvent e);
-		});
+		btnAddButton.setBounds(20,20,100,20);
+
+		
+		btnDeleteButton.setBounds(275,20,100,20);
+
 		
 		
 		frmTodoListFrame.getContentPane().add(btnAddButton);
@@ -98,5 +84,9 @@ public class View {
 		frmTodoListFrame.getContentPane().add(jlTodos);
 		System.out.print("Hello");
 		this.frmTodoListFrame.setVisible(true);
+	}
+	
+	public JButton getAddButton() {
+		return btnAddButton;
 	}
 }
